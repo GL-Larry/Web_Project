@@ -1,0 +1,38 @@
+{% extends 'base.html' %}   {# 继承自 base.html 母版 #}
+{% block content %}
+
+    {% block content_1 %}
+    {% endblock %}
+
+    <section id="partner">
+        <div class="container">
+            <div class="center fadeInDown">
+                <h2>Our Partners</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+
+            <div class="partners">
+                <ul>
+                    <li>
+                        <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="{{ url_for('static', filename='mages/partners/brand-1.png') }}i" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="{{ url_for('static', filename='images/partners/brand-2.png') }}" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="{{ url_for('static', filename='images/partners/brand-3.png') }}" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="{{ url_for('static', filename='images/partners/brand-4.png') }}" alt=""></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="{{ url_for('static', filename='images/partners/brand-5.png') }}" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--/.container-->
+    </section>
+    <!--/#partner-->
+
+{% endblock %}

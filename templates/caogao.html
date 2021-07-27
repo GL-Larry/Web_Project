@@ -1,0 +1,180 @@
+<div class="overlay">
+    <div class="recent-work-inner">
+        <a class="preview" href="{{ url_for('static', filename='images/portfolio/item-1.png') }}" rel="prettyPhoto"><i class="fa fa-plus"></i></a>
+    </div>
+</div>
+
+"{{ url_for('static', filename='') }}"
+<!--登录按钮，dialogFormVisible控制着下方的dialog是否显示出来-->
+<el-button round @click="dialogFormVisible = true"><p class="ptext">登录</p></el-button>
+<!---->
+<!--仔细阅读Dialog的各个属性参数，会影响到布局排版，例如遇到了一个大坑就是没有设置:append-to-body='true'，导致遮罩遮盖整个页面，:lock-scroll="false"没有设置的话，点击前后会感觉到头部导航栏的移动，体验性很不好！！还有设置dialog的宽度width="40%"前面不用加冒号：-->
+<el-dialog title="登录" :visible.sync="dialogFormVisible"  center :append-to-body='true' :lock-scroll="false" width="40%">
+    <!--这里可以写各种登录表单-->
+
+</el-dialog>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 登录和注册模态框 -->
+<!-- data-backdrop="static" 表示用户必须要手工关闭模态框才能操作其他页面 -->
+<div class="modal fade" id="mymodal" data-backdrop="static" tabindex="-1"
+     role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- 在模态框内部配置Tab选项卡，用于切换登录和注册窗口 -->
+            <div class="tabbable" id="tabs" style="background-color: #337AB7; height: 50px;padding: 5px 20px;">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <!-- 与登录和注册窗口的ID进行关联 -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li id="login" class="nav-item active">
+                        <a href="#loginpanel" data-toggle="tab" class="nav-link" style="color: midnightblue">登录</a>
+                    </li>
+                    <li id="reg" class="nav-item">
+                        <a href="#regpanel" data-toggle="tab" class="nav-link" style="color: midnightblue">注册</a>
+                    </li>
+                    <li id="reg" class="nav-item">
+                        <a href="#findpanel" data-toggle="tab" class="nav-link" style="color: midnightblue">找回密码</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 绘制登录窗口 -->
+            <div class="tab-content">
+                <div class="tab-pane container active" id="wechat">
+                    <div class="modal-content" style="margin: 20px 0px;">
+                        <div class="modal-body">
+                            <img style="padding-left:85px" src="{{ url_for('static', filename='images/portfolio/item-2.png') }}" alt="">
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#">账号密码登录</a>
+                            <span>|</span>
+                            <a href="#">注册新账号</a>
+                            <span>|</span>
+                            <a href="#">联系我们</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 绘制注册窗口 -->
+                <div class="tab-pane container" id="regpanel">
+                    <div class="modal-content">
+                        <div class="modal-content" style="margin: 20px 0px;">
+                            <div class="modal-body">
+                                <div class="form-group row" style="margin-top: 20px;">
+                                    <label for="regname" class="col-4">&nbsp;&nbsp;注册邮箱：</label>
+                                    <input type="text" id="regname" class="form-control col-7" placeholder="请输入你的邮箱地址"/>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="regpass" class="col-4">&nbsp;&nbsp;注册密码：</label>
+                                    <input type="password" id="regpass" class="form-control col-7" placeholder="请输入你的注册密码"/>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="regmcode" class="col-4">&nbsp;&nbsp;邮箱验证码：</label>
+                                    <input type="text" id="regmcode" class="form-control col-4" placeholder="请输入邮箱验证码"/>
+                                    <button type="button" class="btn btn-primary col-3">发送邮件</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span>注册时请使用邮箱地址，便于找回密码。&nbsp;&nbsp;</span>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">注册</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 找回密码 -->
+                <div class="tab-pane container" id="findpanel">
+                    <div class="modal-content">
+                        <div class="modal-content" style="margin: 20px 0px;">
+                            <div class="modal-body">
+                                <div class="form-group row" style="margin-top: 20px;">
+                                    <label for="regname" class="col-4">&nbsp;&nbsp;注册邮箱：</label>
+                                    <input type="text" id="regname" class="form-control col-7" placeholder="请输入你的邮箱地址"/>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="regpass" class="col-4">&nbsp;&nbsp;新的密码：</label>
+                                    <input type="password" id="regpass" class="form-control col-7" placeholder="请输入你的注册密码"/>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="regmcode" class="col-4">&nbsp;&nbsp;邮箱验证码：</label>
+                                    <input type="text" id="regmcode" class="form-control col-4" placeholder="请输入邮箱验证码"/>
+                                    <button type="button" class="btn btn-primary col-3">发送邮件</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span>请输入注册邮箱地址并重置密码。&nbsp;&nbsp;</span>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">找回密码</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="partner">
+    <div class="container">
+        <div class="center fadeInDown">
+            <h2>Our Partners</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+        </div>
+
+        <div class="partners">
+            <ul>
+                <li>
+                    <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="{{ url_for('static', filename='mages/partners/brand-1.png') }}i" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="{{ url_for('static', filename='images/partners/brand-2.png') }}" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="{{ url_for('static', filename='images/partners/brand-3.png') }}" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="{{ url_for('static', filename='images/partners/brand-4.png') }}" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="{{ url_for('static', filename='images/partners/brand-5.png') }}" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--/.container-->
+</section>
+<!--/#partner-->
